@@ -108,5 +108,34 @@ namespace Tests
             Assert.Equal(0.3569, result);
         }
 
+        [Fact]
+        public void FundInvestmentWithWidrawl()
+        {
+            var cashFlows = new List<CashFlowDates>()
+            {
+                new CashFlowDates(-2000, new DateTime(2018, 04, 3)),
+                new CashFlowDates(-1500, new DateTime(2018, 05, 7)),
+                new CashFlowDates(-1500, new DateTime(2018, 06, 7)),
+                new CashFlowDates(-10000, new DateTime(2018, 06, 12)),
+                new CashFlowDates(-1500, new DateTime(2018, 07, 7)),
+                new CashFlowDates(-1500, new DateTime(2018, 08, 7)),
+                new CashFlowDates(-1500, new DateTime(2018, 09, 7)),
+                new CashFlowDates(-1500, new DateTime(2018, 10, 7)),
+                new CashFlowDates(-1500, new DateTime(2018, 11, 7)),
+                new CashFlowDates(-1500, new DateTime(2018, 12, 7)),
+                new CashFlowDates(-1500, new DateTime(2019, 01, 7)),
+                new CashFlowDates(-1500, new DateTime(2019, 02, 7)),
+                new CashFlowDates(-1500, new DateTime(2019, 03, 7)),
+                new CashFlowDates(-1500, new DateTime(2019, 04, 7)),
+                new CashFlowDates(-1500, new DateTime(2019, 05, 7)),
+                new CashFlowDates(-1500, new DateTime(2019, 06, 7)),
+                new CashFlowDates(4000, new DateTime(2021, 04, 19)),
+                new CashFlowDates(4000, new DateTime(2021, 05, 19)),
+                new CashFlowDates(41875, new DateTime(2021, 05, 21))
+            };
+            var result = CalculationWrapper.XIRR(cashFlows, 4);
+            Assert.Equal(0.1671, result);
+        }
+
     }
 }
