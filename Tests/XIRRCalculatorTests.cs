@@ -63,8 +63,6 @@ namespace Tests
             {
                 new CashFlowDates(-1000, new DateTime(2017, 1, 1))
             };
-
-
             Assert.Throws<IncosistentCashFlowException>(() => CalculationWrapper.XIRR(cashFlows, 6));
         }
 

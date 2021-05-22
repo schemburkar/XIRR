@@ -2,14 +2,8 @@
 
 namespace Klear.Financial.Lib
 {
-    public class CashFlowDates
+    public record CashFlowDates(double Amount, DateTime Date)
     {
-        public CashFlowDates(double amount, DateTime date)
-        {
-            Amount = amount;
-            Date = date.Date;
-        }
-        public double Amount { get; set; }
-        public DateTime Date { get; set; }
+       
     }
 }
