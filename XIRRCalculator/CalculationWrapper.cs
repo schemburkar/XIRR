@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Klear.Financial.Lib
+namespace XIRRCalculatorLib
 {
     public class CalculationWrapper
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Klear.Financial.Lib
+namespace XIRRCalculatorLib
 {
     public class IncosistentCashFlowException : Exception
     {

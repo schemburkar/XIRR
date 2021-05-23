@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Klear.Financial.Lib
+namespace XIRRCalculatorLib
 {
     public record CashFlowDates(double Amount, DateTime Date)
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 
 using System.Collections.Generic;
-using Klear.Financial.Lib;
+using XIRRCalculatorLib;
 using Xunit;
-namespace Tests
+namespace XIRRCalculatorLib.Tests
 {
 
     public class XIRRCalculatorTests

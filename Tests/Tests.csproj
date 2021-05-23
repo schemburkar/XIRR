@@ -5,7 +5,7 @@
     <langversion>latest</langversion>
   </PropertyGroup> 
   <ItemGroup>
-    <ProjectReference Include="..\XIRRCalculator\FinancialCalculator.csproj" />
+    <ProjectReference Include="..\XIRRCalculator\XIRRCalculatorLib.csproj" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" developmentDependency="true"/>
     <PackageReference Include="xunit" Version="2.4.1"  developmentDependency="true"/>
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3"  developmentDependency="true"/>
