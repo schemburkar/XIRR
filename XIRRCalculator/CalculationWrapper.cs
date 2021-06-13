@@ -7,7 +7,7 @@ namespace XIRRCalculatorLib
 {
     public class CalculationWrapper
     {
-        public static double XIRR(IEnumerable<CashFlowDates> cashflows, int decimals = 4, double maxRate = 1000000)
+        public static double XIRR(IEnumerable<CashFlow> cashflows, int decimals = 4, double maxRate = 1000000)
         {
             if (!cashflows.Any(x => x.Amount > 0))
             {

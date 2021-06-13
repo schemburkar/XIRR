@@ -2,8 +2,9 @@
 
 namespace XIRRCalculatorLib
 {
-    public record CashFlowDates(double Amount, DateTime Date)
+    public record CashFlow(double Amount, DateTime Date)
     {
-       
+
     }
+
 }

@@ -6,7 +6,7 @@ namespace XIRRCalculatorLib
 {
     public class XIRRCalculator
     {
-        public XIRRCalculator(double lowRate, double highRate, IEnumerable<CashFlowDates> cashFlow)
+        public XIRRCalculator(double lowRate, double highRate, IEnumerable<CashFlow> cashFlow)
         {
             var cashFlowYears = ToFractionOfYears(cashFlow);
             Initialize(lowRate, highRate, cashFlowYears);
@@ -34,7 +34,7 @@ namespace XIRRCalculatorLib
         {
             return cashflows.Select(x => (x.Amount / (Math.Pow((1 + interestRate), x.Years)))).Sum(x => x);
         }
-        private static IEnumerable<CashFlowFractionOfYear> ToFractionOfYears(IEnumerable<CashFlowDates> cashflows)
+        private static IEnumerable<CashFlowFractionOfYear> ToFractionOfYears(IEnumerable<CashFlow> cashflows)
         {
             var firstDate = cashflows.Min(x => x.Date);
             return cashflows
