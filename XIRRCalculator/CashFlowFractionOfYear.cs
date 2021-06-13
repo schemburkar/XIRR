@@ -1,13 +1,6 @@
-﻿namespace Klear.Financial.Lib
+﻿namespace XIRRCalculatorLib
 {
-    public class CashFlowFractionOfYear
+    public record CashFlowFractionOfYear(double Amount, double Years)
     {
-        public CashFlowFractionOfYear(double amount, double years)
-        {
-            Amount = amount;
-            Years = years;
-        }
-        public double Amount { get; set; }
-        public double Years { get; set; }
     }
 }

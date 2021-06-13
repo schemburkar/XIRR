@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Klear.Financial.Lib
+namespace XIRRCalculatorLib
 {
     public class XIRRCalculator
     {
-        public XIRRCalculator(double lowRate, double highRate, List<CashFlowDates> cashFlow)
+        public XIRRCalculator(double lowRate, double highRate, IEnumerable<CashFlow> cashFlow)
         {
             var cashFlowYears = ToFractionOfYears(cashFlow);
             Initialize(lowRate, highRate, cashFlowYears);
 
         }
-        private XIRRCalculator(double lowRate, double highRate, List<CashFlowFractionOfYear> cashFlow)
+        private XIRRCalculator(double lowRate, double highRate, IEnumerable<CashFlowFractionOfYear> cashFlow)
         {
             Initialize(lowRate, highRate, cashFlow);
         }
-        private void Initialize(double lowRate, double highRate, List<CashFlowFractionOfYear> cashFlow)
+        private void Initialize(double lowRate, double highRate, IEnumerable<CashFlowFractionOfYear> cashFlow)
         {
             LowRate = lowRate;
             HighRate = highRate;
@@ -28,18 +28,17 @@ namespace Klear.Financial.Lib
         private double HighRate { get; set; }
         private double LowResult { get; set; }
         private double HighResult { get; set; }
-        private List<CashFlowFractionOfYear> CashFlow { get; set; }
+        private IEnumerable<CashFlowFractionOfYear> CashFlow { get; set; }
 
-        private double CalcEquation(List<CashFlowFractionOfYear> cashflows, double interestRate)
+        private double CalcEquation(IEnumerable<CashFlowFractionOfYear> cashflows, double interestRate)
         {
             return cashflows.Select(x => (x.Amount / (Math.Pow((1 + interestRate), x.Years)))).Sum(x => x);
         }
-        private static List<CashFlowFractionOfYear> ToFractionOfYears(List<CashFlowDates> cashflows)
+        private static IEnumerable<CashFlowFractionOfYear> ToFractionOfYears(IEnumerable<CashFlow> cashflows)
         {
             var firstDate = cashflows.Min(x => x.Date);
             return cashflows
-                .Select(x => new CashFlowFractionOfYear(x.Amount, ((double)x.Date.Subtract(firstDate).Days) / 365))
-                .ToList();
+                .Select(x => new CashFlowFractionOfYear(x.Amount, ((double)x.Date.Subtract(firstDate).Days) / 365)).AsEnumerable();
         }
 
         public double Calculate(double precision, int decimals)

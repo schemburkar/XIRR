@@ -1,15 +1,10 @@
 ﻿using System;
 
-namespace Klear.Financial.Lib
+namespace XIRRCalculatorLib
 {
-    public class CashFlowDates
+    public record CashFlow(double Amount, DateTime Date)
     {
-        public CashFlowDates(double amount, DateTime date)
-        {
-            Amount = amount;
-            Date = date.Date;
-        }
-        public double Amount { get; set; }
-        public DateTime Date { get; set; }
+
     }
+
 }
