@@ -45,7 +45,7 @@ namespace XIRRCalculatorLib
         {
             if (Math.Sign(LowResult) == Math.Sign(HighResult))
             {
-                throw new Exception("Value cannot be calculated");
+                throw new InvalidCalculationException("Value cannot be calculated");
             }
 
             var middleRate = (LowRate + HighRate) / 2;
