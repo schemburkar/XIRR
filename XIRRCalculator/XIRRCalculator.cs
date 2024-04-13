@@ -38,7 +38,7 @@ namespace XIRRCalculatorLib
         {
             var firstDate = cashflows.Min(x => x.Date);
             return cashflows
-                .Select(x => new CashFlowFractionOfYear(x.Amount, ((double)x.Date.Subtract(firstDate).Days) / 365)).AsEnumerable();
+                .Select(x => new CashFlowFractionOfYear(x.Amount, ((double)x.Date.Subtract(firstDate).Days) / 365)).ToArray();
         }
 
         public double Calculate(double precision, int decimals)
